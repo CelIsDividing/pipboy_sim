@@ -22,8 +22,8 @@ public class VaultDwellerController {
     }
 
     @GetMapping("/form")
-    public String showForm(@RequestParam(required = false) int id, Model model) {
-        model.addAttribute("dweller", id > 0 ? dwellerService.getDwellerById(id) : new VaultDweller());
+    public String showForm(@RequestParam(required = false) Integer id, Model model) {
+        model.addAttribute("dweller", id != null ? dwellerService.getDwellerByDwellerId(id) : new VaultDweller());
         return "dwellers/form";
     }
 

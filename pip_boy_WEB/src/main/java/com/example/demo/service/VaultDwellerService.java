@@ -16,7 +16,7 @@ public class VaultDwellerService {
         return dwellerRepository.findAll();
     }
 
-    public VaultDweller getDwellerById(int id) {
+    public VaultDweller getDwellerByDwellerId(int id) {
     	return dwellerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dweller not found with id: " + id));
     }

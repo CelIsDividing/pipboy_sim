@@ -14,7 +14,7 @@ public class TerminalController {
     private VaultStatusService vaultService;
 
     @GetMapping("")
-    public String terminal(@RequestParam(defaultValue = "108") int vaultNumber, Model model) {
+    public String terminal(@RequestParam(defaultValue = "81") int vaultNumber, Model model) {
         model.addAttribute("vaultStatus", vaultService.getVaultStatus(vaultNumber));
         return "terminal/terminal";
     }

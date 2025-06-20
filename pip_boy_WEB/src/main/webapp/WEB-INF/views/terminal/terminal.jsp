@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="pipboy-terminal">
     <div class="status-bar">
-        VAULT ${vaultStatus.number} | ${vaultStatus.status} | RAD LEVEL: ${vaultStatus.radiation} REM
+        VAULT ${vaultStatus.number} | ${vaultStatus.status} | RAD LEVEL: ${vaultStatus.radiationLevel} REM
     </div>
     <div class="main-menu">
         <a href="/dwellers" class="menu-item">1. DWELLER MANAGEMENT</a>

@@ -15,7 +15,7 @@ public class VaultStatusService {
     public Map<String, Object> getVaultStatus(int vaultNumber) {
         Vault vault = vaultRepository.findByVaultNumber(vaultNumber);
         return Map.of(
-            "population", vault.getPopulation(),
+            "number", vault.getVaultNumber(),
             "radiationLevel", vault.getRadiationLevel(),
             "status", vault.getStatus()
         );
