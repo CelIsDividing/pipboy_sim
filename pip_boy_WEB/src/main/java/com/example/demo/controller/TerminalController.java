@@ -7,15 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/terminal")
 public class TerminalController {
     
     @Autowired
     private VaultStatusService vaultService;
 
-    @GetMapping("/terminal")
-    public String terminal(@PathVariable int vaultNumber, Model model) {
+    @GetMapping("")
+    public String terminal(@RequestParam(defaultValue = "108") int vaultNumber, Model model) {
         model.addAttribute("vaultStatus", vaultService.getVaultStatus(vaultNumber));
-        return "terminal/pipboy";
+        return "terminal/terminal";
+    }
+    
+    @GetMapping("/test")
+    public String test() {
+        return "terminal/terminal";
     }
 
     @GetMapping("/error")
