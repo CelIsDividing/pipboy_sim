@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/dwellers")
+@RequestMapping("dwellers")
 public class VaultDwellerController {
     
     @Autowired
@@ -18,7 +20,7 @@ public class VaultDwellerController {
     @GetMapping
     public String listDwellers(Model model) {
         model.addAttribute("dwellers", dwellerService.getAllDwellers());
-        return "dwellers/list";
+        return "dwellers/d_list";
     }
 
     @GetMapping("/form")
@@ -29,6 +31,12 @@ public class VaultDwellerController {
 
     @PostMapping("/save")
     public String saveDweller(@ModelAttribute VaultDweller dweller) {
+    	if (dweller.getJoinDate() == null) {
+            dweller.setJoinDate(new Date());
+        }
+        if (dweller.getLastSeen() == null) {
+            dweller.setLastSeen(new Date());
+        }
         dwellerService.saveDweller(dweller);
         return "redirect:/dwellers";
     }

@@ -8,14 +8,14 @@
     </tr>
     <c:forEach items="${dwellers}" var="dweller">
         <tr>
-            <td>${dweller.id}</td>
+            <td>${dweller.dwellerId}</td>
             <td>${dweller.name}</td>
             <td>${dweller.status}</td>
             <td>
-                <a href="/dwellers/form?id=${dweller.id}">Edit</a>
-                <a href="/inventory/vaultDwellers/${dweller.id}/inventory">Inventory</a>
+                <a href="dwellers/form?id=${dweller.dwellerId}">Edit</a>
+                <a href="/inventory/vaultDwellers/${dweller.dwellerId}/inventory">Inventory</a>
             </td>
         </tr>
     </c:forEach>
 </table>
-<a href="/dwellers/form" class="pipboy-button">ADD NEW DWELLER</a>
+<a href="dwellers/form" class="pipboy-button">ADD NEW DWELLER</a>

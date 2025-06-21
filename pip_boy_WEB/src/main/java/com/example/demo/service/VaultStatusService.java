@@ -21,7 +21,7 @@ public class VaultStatusService {
         );
     }
 
-    public void triggerEmergencyProtocol(int vaultNumber) {
-        // Implementation for emergency procedures
+    public boolean vaultExists(int vaultNumber) {
+        return vaultRepository.existsByVaultNumber(vaultNumber);
     }
 }

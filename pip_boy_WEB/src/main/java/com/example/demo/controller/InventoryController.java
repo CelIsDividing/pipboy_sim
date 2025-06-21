@@ -11,12 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/inventory")
+@RequestMapping("inventory")
 public class InventoryController {
     
     @Autowired
     private InventoryService inventoryService;
-
+    
     @GetMapping("/vaultDwellers/{dwellerId}/inventory")
     public String getInventory(@PathVariable("dwellerId") int dwellerId, Model model) {
         model.addAttribute("items", inventoryService.getItemsByDweller(dwellerId));

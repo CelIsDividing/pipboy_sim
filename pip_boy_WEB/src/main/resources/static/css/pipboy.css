@@ -1,0 +1,49 @@
+.pipboy-terminal {
+    background-color: #1a3f1a;
+    color: #14fe17;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+}
+
+.pipboy-table {
+    width: 100%;
+    border: 1px solid #14fe17;
+    border-collapse: collapse;
+}
+
+.pipboy-table th, .pipboy-table td {
+    border: 1px solid #14fe17;
+    padding: 8px;
+}
+
+body {
+	background-color: #1a3f1a;
+	color: #14fe17;
+	font-family: 'Courier New', monospace;
+	text-align: center;
+	padding-top: 100px;
+}
+.pipboy-select {
+	background-color: #0f2a0f;
+	color: #14fe17;
+	border: 1px solid #14fe17;
+	padding: 10px;
+	margin: 10px 0;
+	font-family: 'Courier New', monospace;
+}
+.pipboy-button {
+	background-color: transparent;
+	color: #14fe17;
+	border: 1px solid #14fe17;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-family: 'Courier New', monospace;
+}
+.pipboy-button:hover {
+	background-color: #14fe17;
+	color: #1a3f1a;
+	}
+
+.alert-table tr.severity-1 { color: yellow; }
+.alert-table tr.severity-2 { color: orange; }
+.alert-table tr.severity-3 { color: red; text-transform: uppercase; }

@@ -27,13 +27,23 @@ public class VaultDweller implements Serializable {
 	private int intelligence;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="join_date")
+	@Column(name="join_date", nullable = false)
 	private Date joinDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="last_seen")
 	private Date lastSeen;
-
+	
+	@PrePersist
+    protected void onCreate() {
+        if (joinDate == null) {
+            joinDate = new Date();
+        }
+        if (lastSeen == null) {
+            lastSeen = new Date();
+        }
+    }
+	
 	private String name;
 
 	@Column(name="radiation_level")
@@ -88,7 +98,7 @@ public class VaultDweller implements Serializable {
 	}
 
 	public Date getJoinDate() {
-		return this.joinDate;
+		return joinDate;
 	}
 
 	public void setJoinDate(Date joinDate) {

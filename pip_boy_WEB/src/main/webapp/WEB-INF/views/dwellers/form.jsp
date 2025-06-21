@@ -1,5 +1,6 @@
-<form method="post" action="/dwellers/save" class="pipboy-form">
-    <input type="hidden" name="id" value="${dweller.id}">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<form method="post" action="<c:url value='/dwellers/save' />" class="pipboy-form">
+    <input type="hidden" name="id" value="${dweller.dwellerId}">
     <div class="form-group">
         <label>Name:</label>
         <input type="text" name="name" value="${dweller.name}" class="pipboy-input">

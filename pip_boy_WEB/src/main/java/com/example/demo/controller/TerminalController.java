@@ -7,20 +7,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/terminal")
+@RequestMapping("terminal")
 public class TerminalController {
     
     @Autowired
     private VaultStatusService vaultService;
 
     @GetMapping("")
-    public String terminal(@RequestParam(defaultValue = "81") int vaultNumber, Model model) {
+    public String terminal(
+            @RequestParam(defaultValue = "81") int vaultNumber,
+            Model model) {
+        
+        // Check if vault exists
+        if (!vaultService.vaultExists(vaultNumber)) {
+            model.addAttribute("error", "VAULT " + vaultNumber + " NOT FOUND");
+            return "terminal/error";
+        }
+        
         model.addAttribute("vaultStatus", vaultService.getVaultStatus(vaultNumber));
-        return "terminal/terminal";
-    }
-    
-    @GetMapping("/test")
-    public String test() {
         return "terminal/terminal";
     }
 

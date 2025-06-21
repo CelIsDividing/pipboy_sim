@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/alerts")
+@RequestMapping("alerts")
 public class VaultEventController {
     
     @Autowired
@@ -17,6 +17,6 @@ public class VaultEventController {
     @GetMapping
     public String listAlerts(Model model) {
         model.addAttribute("alerts", eventService.getActiveEvents());
-        return "alerts/list";
+        return "alerts/a_list";
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/radio")
+@RequestMapping("radio")
 public class RadioController {
     
     @Autowired
