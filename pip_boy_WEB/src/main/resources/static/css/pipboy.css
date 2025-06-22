@@ -1,8 +1,14 @@
 .pipboy-terminal {
-    background-color: #1a3f1a;
+    background-image: url('pipboy.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Keep your existing styles */
     color: #14fe17;
     font-family: 'Courier New', monospace;
     padding: 20px;
+    min-height: 100vh; /* Full viewport height */
 }
 
 .pipboy-table {
@@ -17,7 +23,11 @@
 }
 
 body {
-	background-color: #1a3f1a;
+	background-image: url('pipboy.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 	color: #14fe17;
 	font-family: 'Courier New', monospace;
 	text-align: center;
