@@ -1,7 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import jakarta.persistence.*;
 import java.util.List;
@@ -23,8 +22,8 @@ public class Vault implements Serializable {
 
 	private String location;
 
-	@Column(name = "radiation_level", precision = 5, scale = 2)
-    private BigDecimal radiationLevel = new BigDecimal("0.00");
+	@Column(name = "radiation_level", precision = 5)
+    private double radiationLevel;
 	
 	@Column(name="overseer_name")
 	private String overseerName;
@@ -52,11 +51,11 @@ public class Vault implements Serializable {
 		this.vaultNumber = vaultNumber;
 	}
 	
-	public BigDecimal getRadiationLevel() {
+	public double getRadiationLevel() {
         return radiationLevel;
     }
     
-    public void setRadiationLevel(BigDecimal radiationLevel) {
+    public void setRadiationLevel(double radiationLevel) {
         this.radiationLevel = radiationLevel;
     }
 

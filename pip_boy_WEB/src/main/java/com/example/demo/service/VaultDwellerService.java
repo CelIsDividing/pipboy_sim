@@ -32,4 +32,8 @@ public class VaultDwellerService {
     public List<VaultDweller> findByStatus(String status) {
         return dwellerRepository.findByStatus(status);
     }
+    
+    public List<VaultDweller> getDwellersByVaultNumber(int vaultNumber) {
+        return dwellerRepository.findByVaultVaultNumber(vaultNumber);
+    }
 }

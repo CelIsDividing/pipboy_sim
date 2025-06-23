@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 import model.VaultDweller;
 import com.example.demo.service.VaultDwellerService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +21,14 @@ public class VaultDwellerController {
     private VaultDwellerService dwellerService;
 
     @GetMapping
-    public String listDwellers(Model model) {
-        model.addAttribute("dwellers", dwellerService.getAllDwellers());
+    public String listDwellers(Model model, HttpSession session) {
+    	Integer vaultNumber = (Integer) session.getAttribute("currentVault");
+    	if (vaultNumber != null) {
+            model.addAttribute("dwellers", dwellerService.getDwellersByVaultNumber(vaultNumber));
+            model.addAttribute("currentVault", vaultNumber);
+        } else {
+            model.addAttribute("dwellers", dwellerService.getAllDwellers());
+        }
         return "dwellers/d_list";
     }
 
