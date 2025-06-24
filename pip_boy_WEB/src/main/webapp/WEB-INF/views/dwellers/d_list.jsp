@@ -8,7 +8,7 @@
       		<div class="vault-header">
                 <c:choose>
                     <c:when test="${not empty currentVault}">
-                        <h3>VAULT ${currentVault} DWELLER REGISTRY</h3>
+                        <h3 class="title-header">VAULT ${currentVault} DWELLER REGISTRY</h3>
                     </c:when>
                 </c:choose>
             </div>

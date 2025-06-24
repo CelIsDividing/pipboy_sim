@@ -10,7 +10,7 @@
 <body>
 	<img src="<c:url value='/images/pipboy.png' />" class="pipboy-image">
 	<div class="pipboy-terminal">
-	    <h2>VAULT-TEC TERMINAL ACCESS</h2>
+	    <h2 class="title-header">VAULT-TEC TERMINAL ACCESS</h2>
 	    <form action="terminal" method="get">
 	        <select name="vaultNumber" class="pipboy-select" required>
 	            <option value="">SELECT A VAULT</option>

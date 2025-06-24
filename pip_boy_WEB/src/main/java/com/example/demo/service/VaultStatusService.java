@@ -35,4 +35,8 @@ public class VaultStatusService {
     public boolean vaultExists(int vaultNumber) {
         return vaultRepository.existsByVaultNumber(vaultNumber);
     }
+    
+    public Vault getVaultByVaultNumber(Integer vaultNumber) {
+        return vaultRepository.findByVaultNumber(vaultNumber);
+    }
 }

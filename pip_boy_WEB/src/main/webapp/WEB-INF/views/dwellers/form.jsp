@@ -7,10 +7,14 @@
     <div class="pipboy-terminal">
     	<div class="pipboy-screen">
 	         <form method="post" action="<c:url value='/dwellers/save' />" class="pipboy-form">
-	            <h2 class="form-title">DWELLER RECORD EDITOR</h2>
+	            <h2 class="form-title title-header">DWELLER RECORD EDITOR</h2>
 	            
-	            <input type="hidden" name="id" value="${dweller.dwellerId}">
+	            <input type="hidden" name="dwellerId" value="${dweller.dwellerId}">
 	            
+	            <c:if test="${not empty currentVault}">
+               		<input type="hidden" name="vault.vaultNumber" value="${currentVault}">
+            	</c:if>
+            
 	            <div class="form-group">
 	                <label>>> [NAME]:::::::::::::::::::::</label>
 	                <input type="text" name="name" value="${dweller.name}" class="pipboy-input" required>
@@ -20,7 +24,9 @@
 	                <label>>> [STATUS]:::::::::::::::::::</label>
 	                <select name="status" class="pipboy-form-select" required>
 	                    <option value="ACTIVE" ${dweller.status == 'ACTIVE' ? 'selected' : ''}>ACTIVE</option>
-	                    <option value="INACTIVE" ${dweller.status == 'INACTIVE' ? 'selected' : ''}>INACTIVE</option>
+	                    <option value="MISSING" ${dweller.status == 'MISSING' ? 'selected' : ''}>MISSING</option>
+	                    <option value="DECEASED" ${dweller.status == 'DECEASED' ? 'selected' : ''}>DECEASED</option>
+	                    <option value="MEDICAL_BAY" ${dweller.status == 'MEDICAL_BAY' ? 'selected' : ''}>MEDICAL_BAY</option>
 	                </select>
 	            </div>
 	            

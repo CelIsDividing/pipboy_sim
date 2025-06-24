@@ -22,6 +22,21 @@ public class VaultDwellerService {
     }
 
     public VaultDweller saveDweller(VaultDweller dweller) {
+    	if (dweller.getDwellerId() > 0) {
+            // Update existing
+            VaultDweller existing = dwellerRepository.findById(dweller.getDwellerId()).orElse(null);
+            if (existing != null) {
+                // Update all editable fields
+                existing.setName(dweller.getName());
+                existing.setStatus(dweller.getStatus());
+                existing.setGender(dweller.getGender());
+                existing.setStrength(dweller.getStrength());
+                existing.setIntelligence(dweller.getIntelligence());
+                existing.setRadiationLevel(dweller.getRadiationLevel());
+                existing.setLastSeen(dweller.getLastSeen());
+                return dwellerRepository.save(existing);
+            }
+        }
         return dwellerRepository.save(dweller);
     }
 

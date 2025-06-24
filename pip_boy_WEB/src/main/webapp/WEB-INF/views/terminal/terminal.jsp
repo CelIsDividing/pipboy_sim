@@ -4,7 +4,7 @@
 <img src="<c:url value='/images/pipboy.png' />" class="pipboy-image">
 <div class="pipboy-terminal">
     <div class="status-bar">
-    	<h3>VAULT ${vaultStatus['number']} | ${vaultStatus['status']} | RAD LEVEL: ${vaultStatus['radiationLevel']} REM</h3>
+    	<h3 class="title-header">VAULT ${vaultStatus['number']} | ${vaultStatus['status']} | RAD LEVEL: ${vaultStatus['radiationLevel']} REM</h3>
     </div>
     <div class="main-menu">
     	<p class="paragraph-style" id="typing-text"></p>
