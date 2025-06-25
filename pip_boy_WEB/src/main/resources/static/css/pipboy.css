@@ -149,11 +149,11 @@ body.zoomed {
 }
 
 .pipboy-list {
-    height: calc(100% - 210px);
+    height: calc(100% - 280px);
     overflow-y: auto;
     overflow-x: auto;
-    margin-top: -15px;
-    margin-bottom: -15px;
+    margin-top: 15px;
+    margin-bottom: 3%;
 }
 
 .pipboy-table {
@@ -451,3 +451,21 @@ body.zoomed {
 	color: rgba(207, 148, 54, 0.7);
 	font-size: 0.9em;
 }
+
+/* Alert container styling */
+.alert-log {
+	background-color: rgba(25, 20, 7, 0.7);
+	padding: 15px;
+	overflow-y: auto;
+	margin-left: 15%;
+	border-left: 3px solid #cf9436;
+}
+        
+/* Severity specific coloring */
+        .severity-1 { color: #cf9436; } /* Yellow */
+        .severity-2 { color: #ff8000; } /* Orange */
+        .severity-3 { 
+            color: #ff0000; /* Red */
+            font-weight: bold;
+            text-transform: uppercase;
+        }

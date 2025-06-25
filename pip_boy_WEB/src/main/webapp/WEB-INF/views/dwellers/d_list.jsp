@@ -32,7 +32,7 @@
                                 <td class="pipboy-table-cell pipboy-actions">
                                     <a href="dwellers/form?id=${dweller.dwellerId}" class="pipboy-table-link">EDIT</a>
                                     <span class="pipboy-spacer">|</span>
-                                    <a href="/inventory/vaultDwellers/${dweller.dwellerId}/inventory" class="pipboy-table-link">INVENTORY</a>
+                                    <a href="/inventory/dweller/${dweller.dwellerId}" class="pipboy-table-link">INVENTORY</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -40,10 +40,10 @@
                 </table>
             </div>
             <div class="pipboy-controls">
-                <a href="dwellers/form" class="pipboy-button">ADD NEW DWELLER</a>
+                <a href="dwellers/form" class="pipboy-button">[ADD_NEW_DWELLER]</a>
                 <c:if test="${not empty currentVault}">
                     <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" 
-                       class="pipboy-button">BACK TO TERMINAL</a>
+                       class="pipboy-button">[MAIN_MENU]</a>
                 </c:if>
             </div>
         </div>

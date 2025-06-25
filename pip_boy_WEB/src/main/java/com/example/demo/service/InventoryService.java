@@ -12,6 +12,10 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
+    public List<InventoryItem> getAllItems() {
+        return inventoryRepository.findAll();
+    }
+    
     public List<InventoryItem> getItemsByDweller(int dwellerId) {
         return inventoryRepository.findByVaultDwellerDwellerId(dwellerId);
     }
