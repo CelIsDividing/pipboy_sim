@@ -64,7 +64,7 @@
 	                <input type="datetime-local" name="lastSeen" value="<fmt:formatDate value='${dweller.lastSeen}' pattern='yyyy-MM-dd\'T\'HH:mm' />" class="pipboy-input" required>
 	            </div>
 	            <br>
-	            <button type="submit" class="form-button pipboy-button">SAVE RECORD</button>
+	            <button type="submit" class="form-button pipboy-button">[SAVE RECORD]</button>
 	            <br><br>
 	        </form>
         </div>

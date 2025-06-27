@@ -41,9 +41,9 @@
                                 </td>
                                 <td class="pipboy-table-cell pipboy-actions">
                                     <a href="<c:url value='/inventory/transfer/${item.itemId}'/>" 
-                                       class="pipboy-table-link">TRANSFER</a>
+                                       class="pipboy-table-link">[TRANSFER]</a>
                                     <a href="<c:url value='/inventory/drop/${item.itemId}'/>" 
-                                       class="pipboy-table-link">DROP</a>
+                                       class="pipboy-table-link">[DROP]</a>
                                 </td>
                             </tr>
                         </c:forEach>

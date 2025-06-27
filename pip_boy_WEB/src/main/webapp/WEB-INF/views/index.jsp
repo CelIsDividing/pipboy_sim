@@ -13,7 +13,7 @@
 	    <h2 class="title-header">VAULT-TEC TERMINAL ACCESS</h2>
 	    <form action="terminal" method="get">
 	        <select name="vaultNumber" class="pipboy-select" required>
-	            <option value="">SELECT A VAULT</option>
+	            <option value="">[SELECT A VAULT]</option>
 	            <c:forEach items="${vaults}" var="vault">
 	                <option value="${vault.vaultNumber}">
 	                    Vault ${vault.vaultNumber} (${vault.location})
@@ -21,7 +21,7 @@
 	            </c:forEach>
 	        </select>
 	        <br>
-	        <button type="submit" class="pipboy-button">ACCESS TERMINAL</button>
+	        <button type="submit" class="pipboy-button">[ACCESS TERMINAL]</button>
 	    </form>  
     </div>
 </body>

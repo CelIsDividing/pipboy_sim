@@ -28,7 +28,7 @@
             </div>
             
             <div class="pipboy-controls">
-                <a href="<c:url value='/radio'/>" class="pipboy-button">BACK TO STATIONS</a>
+                <a href="<c:url value='/radio'/>" class="pipboy-button">[BACK_TO_STATIONS]</a>
             </div>
         </div>
     </div>

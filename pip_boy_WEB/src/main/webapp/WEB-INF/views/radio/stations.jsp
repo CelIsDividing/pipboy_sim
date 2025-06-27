@@ -27,7 +27,7 @@
             </div>
             
             <div class="pipboy-controls">
-                <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" class="pipboy-button">BACK TO TERMINAL</a>
+                <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" class="pipboy-button">[MAIN_MENU]</a>
             </div>
         </div>
     </div>

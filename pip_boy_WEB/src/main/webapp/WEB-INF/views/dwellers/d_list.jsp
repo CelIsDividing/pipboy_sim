@@ -30,9 +30,13 @@
                                 <td class="pipboy-table-cell">${dweller.name}</td>
                                 <td class="pipboy-table-cell">${dweller.status}</td>
                                 <td class="pipboy-table-cell pipboy-actions">
-                                    <a href="dwellers/form?id=${dweller.dwellerId}" class="pipboy-table-link">EDIT</a>
-                                    <span class="pipboy-spacer">|</span>
-                                    <a href="/inventory/dweller/${dweller.dwellerId}" class="pipboy-table-link">INVENTORY</a>
+                                    <a href="dwellers/form?id=${dweller.dwellerId}" class="pipboy-table-link">[EDIT]</a>
+                                    <a href="/inventory/dweller/${dweller.dwellerId}" class="pipboy-table-link">[INVENTORY]</a>
+                                    <a href="<c:url value='/dwellers'/>" 
+                   						class="pipboy-table-link"
+                   						onclick="return confirm('Terminate dweller record ${dweller.name}?')">
+                    					[DELETE]
+                					</a>
                                 </td>
                             </tr>
                         </c:forEach>
