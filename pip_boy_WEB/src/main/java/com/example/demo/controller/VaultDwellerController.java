@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -27,12 +26,6 @@ public class VaultDwellerController {
     
     @Autowired
     private VaultStatusService vaultService;
-
-    @GetMapping
-    public ResponseEntity<List<VaultDweller>> getAllDwellers() {
-        // This endpoint now requires a valid JWT token
-        return ResponseEntity.ok(dwellerService.getAllDwellers());
-    }
     
     @GetMapping
     public String listDwellers(Model model, HttpSession session) {
@@ -115,13 +108,13 @@ public class VaultDwellerController {
         return dwellerService.getAllDwellers();
     }
     
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String deleteDweller(@PathVariable int id, HttpSession session) {
         dwellerService.deleteDweller(id);
         
         // Force refresh by redirecting
         Integer vaultNumber = (Integer) session.getAttribute("currentVault");
-        return "redirect:" + (vaultNumber != null ? 
-            "/vaults/" + vaultNumber : "/dwellers");
+        
+        return "dwellers";
     }
 }

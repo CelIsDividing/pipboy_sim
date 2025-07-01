@@ -21,7 +21,7 @@ public class VaultDweller implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="dweller_id")
 	private int dwellerId;
-
+    
 	private String gender;
 
 	private int intelligence;

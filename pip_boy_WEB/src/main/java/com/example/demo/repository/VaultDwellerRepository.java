@@ -7,4 +7,5 @@ import java.util.List;
 public interface VaultDwellerRepository extends JpaRepository<VaultDweller, Integer> {
     List<VaultDweller> findByStatus(String status);
     List<VaultDweller> findByVaultVaultNumber(int vaultNumber);
+    VaultDweller findByDwellerId(int dweller_id);
 }

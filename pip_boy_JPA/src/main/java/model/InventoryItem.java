@@ -34,7 +34,7 @@ public class InventoryItem implements Serializable {
 
 	//bi-directional many-to-one association to VaultDweller
 	@ManyToOne
-	@JoinColumn(name="dweller_id")
+	@JoinColumn(name="dweller_id", nullable = true)
 	private VaultDweller vaultDweller;
 
 	public InventoryItem() {

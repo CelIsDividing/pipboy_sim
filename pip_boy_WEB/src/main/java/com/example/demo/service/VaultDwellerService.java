@@ -1,15 +1,15 @@
 package com.example.demo.service;
 
+import model.InventoryItem;
 import model.VaultDweller;
 
 import com.example.demo.exception.DwellerNotFoundException;
-import com.example.demo.exception.VaultAccessException;
+import com.example.demo.repository.InventoryRepository;
 import com.example.demo.repository.VaultDwellerRepository;
 
 import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -19,6 +19,9 @@ public class VaultDwellerService {
 
     @Autowired
     private VaultDwellerRepository dwellerRepository;
+    
+    @Autowired
+    private InventoryRepository itemRepository;
 
     public List<VaultDweller> getAllDwellers() {
         return dwellerRepository.findAll();
@@ -58,14 +61,19 @@ public class VaultDwellerService {
     
     @Transactional
     public void deleteDweller(int id) {
-    	try {
-            VaultDweller dweller = dwellerRepository.findById(id)
-                .orElseThrow(() -> new DwellerNotFoundException(id));
+    	
+    	List<InventoryItem> dwellerItems = itemRepository.findByVaultDwellerDwellerId(id);
+    	
+    	dwellerItems.forEach(item -> {
+            item.setVaultDweller(null);
+            itemRepository.save(item);
+        });
+    	
+        VaultDweller dweller = dwellerRepository.findById(id)
+            .orElseThrow(() -> new DwellerNotFoundException(id));
             
-            dwellerRepository.delete(dweller);
-            dwellerRepository.flush();
-        } catch (DataIntegrityViolationException e) {
-            throw new VaultAccessException("[ERROR ::::: EMPTY_THE_INVENTORY_FIRST]");
-        }
+        dwellerRepository.delete(dweller);
+        dwellerRepository.flush();
+        
     }
 }
