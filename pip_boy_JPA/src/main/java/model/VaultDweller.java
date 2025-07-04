@@ -70,6 +70,15 @@ public class VaultDweller implements Serializable {
 	@JoinColumn(name="vault_number")
 	private Vault vault;
 
+	@Column(name="username", unique=true, nullable=false)
+    private String username;
+
+    @Column(name="password_hash", nullable=false)
+    private String passwordHash;
+
+    @Column(name="security_clearance", nullable=false)
+    private String securityClearance; // "OVERSEER", "SECURITY", "SCIENTIST", "DWELLER"
+    
 	public VaultDweller() {
 	}
 
@@ -204,5 +213,29 @@ public class VaultDweller implements Serializable {
 	public void setVault(Vault vault) {
 		this.vault = vault;
 	}
+	
+	public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public String getSecurityClearance() {
+        return securityClearance;
+    }
+
+    public void setSecurityClearance(String securityClearance) {
+        this.securityClearance = securityClearance;
+    }
 
 }
