@@ -78,7 +78,6 @@ public class VaultDwellerService {
     }
     
     public VaultDweller getDwellerByUsername(String username) {
-        return dwellerRepository.findByUsername(username)
-            .orElseThrow(() -> new RuntimeException("Dweller not found"));
+        return dwellerRepository.findByUsername(username);
     }
 }

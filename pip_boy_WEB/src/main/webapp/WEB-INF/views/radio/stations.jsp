@@ -27,9 +27,35 @@
             </div>
             
             <div class="pipboy-controls">
-                <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" class="pipboy-button">[MAIN_MENU]</a>
+                <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" class="pipboy-button" id="main-menu">[MAIN_MENU]</a>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    const hotkeys = {
+	        'Escape': 'main-menu'
+	    };
+	
+	    document.addEventListener('keydown', function(event) {
+	        const key = event.key.toLowerCase();
+	        const actionId = hotkeys[key] || hotkeys[event.key];
+	        
+	        if (actionId) {
+	            event.preventDefault();
+	            const element = document.getElementById(actionId);
+	            if (element) {
+	                // Visual feedback
+	                element.classList.add('pipboy-button-active');
+	                setTimeout(() => element.classList.remove('pipboy-button-active'), 200);
+	                
+	                // Trigger click after visual feedback starts
+	                setTimeout(() => element.click(), 50);
+	            }
+	        }
+	    });
+	});
+</script>
 </html>

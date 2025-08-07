@@ -108,13 +108,10 @@ public class VaultDwellerController {
         return dwellerService.getAllDwellers();
     }
     
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteDweller(@PathVariable int id, HttpSession session) {
         dwellerService.deleteDweller(id);
         
-        // Force refresh by redirecting
-        Integer vaultNumber = (Integer) session.getAttribute("currentVault");
-        
-        return "dwellers";
+        return "redirect:/dwellers";
     }
 }

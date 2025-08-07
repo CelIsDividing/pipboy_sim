@@ -18,7 +18,7 @@ public class IndexController {
 		return "login";
 	}
 
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("vaults", vaultRepository.findAll());
 		return "index";

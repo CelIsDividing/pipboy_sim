@@ -1,12 +1,12 @@
 // typing-animation.js
-const text = `>> [SYSTEM INITIALIZED]
-    		>> [MAIN MENU OPTIONS DETECTED]
-        	[+] [DWELLER MANAGEMENT]
-        	[+] [INVENTORY SYSTEMS]
-        	[+] [RADIO FREQUENCIES]
-        	[+] [SECURITY ALERTS]
+const text = `>> [SYSTEM_INITIALIZED]::::[MENU_OPTIONS_DETECTED]
+        	[+] [DWELLER_MANAGEMENT]
+        	[+] [INVENTORY_SYSTEMS]
+        	[+] [RADIO_FREQUENCIES]
+			[+] [TICKET_SYSTEM]
         	[+] [RETURN]
-        	>> [SELECT OPTION >> 0-4 <<]: █`;
+			[+] [LOG-OUT]
+        	>> [SELECT_OPTION >> 0-5 <<]: `;
 
 const element = document.getElementById("typing-text");
 let i = 0;
@@ -18,11 +18,12 @@ let charDelay = 10;  // Delay between characters (ms)
 
 // Define which lines should be links and their URLs
 const linkLines = {
-    "[DWELLER MANAGEMENT]": CONTEXT_URLS.dwellers,
-    "[INVENTORY SYSTEMS]": CONTEXT_URLS.inventory,
-    "[RADIO FREQUENCIES]": CONTEXT_URLS.radio,
-    "[SECURITY ALERTS]": CONTEXT_URLS.alerts,
-    "[RETURN]": CONTEXT_URLS.home
+    "[DWELLER_MANAGEMENT]": CONTEXT_URLS.dwellers,
+    "[INVENTORY_SYSTEMS]": CONTEXT_URLS.inventory,
+    "[RADIO_FREQUENCIES]": CONTEXT_URLS.radio,
+	"[TICKET_SYSTEM]": CONTEXT_URLS.tickets,
+    "[RETURN]": CONTEXT_URLS.home,
+	"[LOG-OUT]": CONTEXT_URLS.logout
 };
 
 function processTextWithLinks(displayedText, includeCursor = true) {
@@ -103,5 +104,10 @@ window.onload = function() {
             const currentText = text.substring(0, i);
             element.innerHTML = processTextWithLinks(currentText);
         }
-    }, 500);
+		else if (typingComplete) {
+		            cursorVisible = !cursorVisible;
+		            const currentText = text.substring(0, i);
+		            element.innerHTML = processTextWithLinks(currentText);
+		        }
+    }, 850);
 };

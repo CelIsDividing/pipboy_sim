@@ -26,7 +26,6 @@
                             <th>QTY</th>
                             <th>ITEM</th>
                             <th>COND</th>
-                            <th>ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,13 +34,6 @@
                                 <td class="pipboy-table-cell">${item.quantity}</td>
                                 <td class="pipboy-table-cell">>> ${item.name}</td>
                                 <td class="pipboy-table-cell">${item.conditionPercentage}%</td>
-                                <td class="pipboy-table-cell pipboy-actions">
-                                    <a href="<c:url value='/inventory/transfer/${item.itemId}'/>" 
-                                       class="pipboy-table-link">[TRANSFER]</a>
-                                    <a href="<c:url value='/inventory/drop/${item.itemId}'/>" 
-                                       class="pipboy-table-link"
-                                       onclick="return confirm('Drop ${item.name}?')">[DROP]</a>
-                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -49,16 +41,40 @@
             </div>
             
             <div class="pipboy-controls">
-                <a href="<c:url value='/inventory/dweller/${dwellerId}/add'/>" 
-                   class="pipboy-button">[ADD_ITEM]</a>
                 <a href="<c:url value='/dwellers'/>" 
-                   class="pipboy-button">[BACK_TO_DWELLERS]</a>
+                   class="pipboy-button" id="main-menu">[BACK_TO_DWELLERS]</a>
                 <c:if test="${not empty currentVault}">
                     <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" 
-                       class="pipboy-button">[MAIN_MENU]</a>
+                       class="pipboy-button" id="main-menu">[MAIN_MENU]</a>
                 </c:if>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    const hotkeys = {
+	        'Escape': 'main-menu'
+	    };
+	
+	    document.addEventListener('keydown', function(event) {
+	        const key = event.key.toLowerCase();
+	        const actionId = hotkeys[key] || hotkeys[event.key];
+	        
+	        if (actionId) {
+	            event.preventDefault();
+	            const element = document.getElementById(actionId);
+	            if (element) {
+	                // Visual feedback
+	                element.classList.add('pipboy-button-active');
+	                setTimeout(() => element.classList.remove('pipboy-button-active'), 200);
+	                
+	                // Trigger click after visual feedback starts
+	                setTimeout(() => element.click(), 50);
+	            }
+	        }
+	    });
+	});
+</script>
 </html>

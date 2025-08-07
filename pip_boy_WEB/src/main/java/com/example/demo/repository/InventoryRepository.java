@@ -7,4 +7,5 @@ import java.util.List;
 public interface InventoryRepository extends JpaRepository<InventoryItem, Integer> {
     List<InventoryItem> findByVaultDwellerDwellerId(int dwellerId);
     List<InventoryItem> findByItemTypeAndConditionPercentageGreaterThan(String itemType, int minCondition);
+    InventoryItem findByItemId(int item_id);
 }

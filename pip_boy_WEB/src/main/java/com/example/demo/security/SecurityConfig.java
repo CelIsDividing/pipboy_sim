@@ -21,16 +21,18 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(requests -> requests
                 .requestMatchers(
-                    "/css/**",
-                    "/js/**",
-                    "/images/**",
-                    "/terminal/**",
-                    "/login",
-                    "/index"
+                		"/pipboy/login",
+                        "/login",
+                        "/css/**",
+                        "/js/**",
+                        "/images/**"
+                        , "/WEB-INF/views/login.jsp"
                 ).permitAll()
-                .requestMatchers("/dwellers/**").hasAnyRole("OVERSEER", "SECURITY")
-                .requestMatchers("/inventory/**").hasAnyRole("OVERSEER", "SECURITY", "SCIENTIST")
-                .requestMatchers("/radio/**").hasAnyRole("OVERSEER", "SECURITY", "SCIENTIST", "DWELLER")
+                .requestMatchers("/tickets/new").hasAnyRole("DWELLER", "SCIENTIST", "SECURITY", "ADMIN")
+                .requestMatchers("/tickets", "/tickets/**").authenticated()
+                .requestMatchers("/dwellers/**").hasAnyRole("ADMIN", "SECURITY")
+                .requestMatchers("/inventory/**").hasAnyRole("ADMIN", "SECURITY", "SCIENTIST")
+                .requestMatchers("/radio/**", "/index").hasAnyRole("ADMIN", "SECURITY", "SCIENTIST", "DWELLER")
                 .requestMatchers("/alerts/**").hasRole("SECURITY")
                 .anyRequest().authenticated()
             )
@@ -41,10 +43,10 @@ public class SecurityConfig {
                 .permitAll()
             )
             .logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/index")
             )
             .exceptionHandling(handling -> handling
-                .accessDeniedPage("/access-denied")
+                .accessDeniedPage("/WEB-INF/views/access_denied.jsp")
             )
             .csrf(csrf -> csrf.disable());
 

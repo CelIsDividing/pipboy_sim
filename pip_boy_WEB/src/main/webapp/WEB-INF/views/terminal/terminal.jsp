@@ -4,7 +4,7 @@
 <img src="<c:url value='/images/pipboy.png' />" class="pipboy-image">
 <div class="pipboy-terminal">
     <div class="status-bar">
-    	<h3 class="title-header">VAULT ${vaultStatus['number']} | ${vaultStatus['status']} | RAD LEVEL: ${vaultStatus['radiationLevel']} REM</h3>
+    	<h3 class="title-header">VAULT_${vaultStatus['number']} | ${vaultStatus['status']} | RAD_LEVEL: ${vaultStatus['radiationLevel']} REM</h3>
     </div>
     <div class="main-menu">
     	<p class="paragraph-style" id="typing-text"></p>
@@ -15,8 +15,9 @@
         dwellers: '<c:url value="/dwellers"/>',
         inventory: '<c:url value="/inventory"/>',
         radio: '<c:url value="/radio"/>',
-        alerts: '<c:url value="/alerts"/>',
-        home: '<c:url value="/"/>'
+        tickets: '<c:url value="/tickets"/>',
+        home: '<c:url value="/index"/>',
+        logout: '${pageContext.request.contextPath}/login'
     };
 </script>
 <script src="<c:url value='/javascript/typing-text.js' />"></script>

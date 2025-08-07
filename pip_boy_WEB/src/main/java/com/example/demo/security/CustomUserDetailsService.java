@@ -17,8 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        VaultDweller dweller = dwellerRepository.findByUsername(username)
-            .orElseThrow(() -> new UsernameNotFoundException("Dweller not found with username: " + username));
+        VaultDweller dweller = dwellerRepository.findByUsername(username);
         
         return new CustomUserDetails(dweller);
     }

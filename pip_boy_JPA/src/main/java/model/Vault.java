@@ -36,10 +36,6 @@ public class Vault implements Serializable {
 	@OneToMany(mappedBy="vault")
 	private List<VaultDweller> vaultDwellers;
 
-	//bi-directional many-to-one association to VaultEvent
-	@OneToMany(mappedBy="vault")
-	private List<VaultEvent> vaultEvents;
-
 	public Vault() {
 	}
 
@@ -111,28 +107,6 @@ public class Vault implements Serializable {
 		vaultDweller.setVault(null);
 
 		return vaultDweller;
-	}
-
-	public List<VaultEvent> getVaultEvents() {
-		return this.vaultEvents;
-	}
-
-	public void setVaultEvents(List<VaultEvent> vaultEvents) {
-		this.vaultEvents = vaultEvents;
-	}
-
-	public VaultEvent addVaultEvent(VaultEvent vaultEvent) {
-		getVaultEvents().add(vaultEvent);
-		vaultEvent.setVault(this);
-
-		return vaultEvent;
-	}
-
-	public VaultEvent removeVaultEvent(VaultEvent vaultEvent) {
-		getVaultEvents().remove(vaultEvent);
-		vaultEvent.setVault(null);
-
-		return vaultEvent;
 	}
 
 }

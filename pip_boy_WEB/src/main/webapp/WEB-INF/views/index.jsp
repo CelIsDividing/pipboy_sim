@@ -21,8 +21,34 @@
 	            </c:forEach>
 	        </select>
 	        <br>
-	        <button type="submit" class="pipboy-button">[ACCESS TERMINAL]</button>
+	        <button type="submit" class="pipboy-button" id="access">[ACCESS TERMINAL]</button>
 	    </form>  
     </div>
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    const hotkeys = {
+	        'Enter': 'access'
+	    };
+	
+	    document.addEventListener('keydown', function(event) {
+	        const key = event.key.toLowerCase();
+	        const actionId = hotkeys[key] || hotkeys[event.key];
+	        
+	        if (actionId) {
+	            event.preventDefault();
+	            const element = document.getElementById(actionId);
+	            if (element) {
+	                // Visual feedback
+	                element.classList.add('pipboy-button-active');
+	                setTimeout(() => element.classList.remove('pipboy-button-active'), 200);
+	                
+	                // Trigger click after visual feedback starts
+	                setTimeout(() => element.click(), 50);
+	            }
+	        }
+	    });
+	});
+</script>
 </html>

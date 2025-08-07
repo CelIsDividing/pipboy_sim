@@ -57,10 +57,6 @@ public class VaultDweller implements Serializable {
 	@OneToOne(mappedBy="vaultDweller")
 	private DwellerLocation dwellerLocation;
 
-	//bi-directional many-to-one association to DwellerQuest
-	@OneToMany(mappedBy="vaultDweller")
-	private List<DwellerQuest> dwellerQuests;
-
 	//bi-directional many-to-one association to InventoryItem
 	@OneToMany(mappedBy="vaultDweller")
 	private List<InventoryItem> inventoryItems;
@@ -77,7 +73,7 @@ public class VaultDweller implements Serializable {
     private String passwordHash;
 
     @Column(name="security_clearance", nullable=false)
-    private String securityClearance; // "OVERSEER", "SECURITY", "SCIENTIST", "DWELLER"
+    private String securityClearance; // "ADMIN", "SECURITY", "SCIENTIST", "DWELLER"
     
 	public VaultDweller() {
 	}
@@ -160,28 +156,6 @@ public class VaultDweller implements Serializable {
 
 	public void setDwellerLocation(DwellerLocation dwellerLocation) {
 		this.dwellerLocation = dwellerLocation;
-	}
-
-	public List<DwellerQuest> getDwellerQuests() {
-		return this.dwellerQuests;
-	}
-
-	public void setDwellerQuests(List<DwellerQuest> dwellerQuests) {
-		this.dwellerQuests = dwellerQuests;
-	}
-
-	public DwellerQuest addDwellerQuest(DwellerQuest dwellerQuest) {
-		getDwellerQuests().add(dwellerQuest);
-		dwellerQuest.setVaultDweller(this);
-
-		return dwellerQuest;
-	}
-
-	public DwellerQuest removeDwellerQuest(DwellerQuest dwellerQuest) {
-		getDwellerQuests().remove(dwellerQuest);
-		dwellerQuest.setVaultDweller(null);
-
-		return dwellerQuest;
 	}
 
 	public List<InventoryItem> getInventoryItems() {

@@ -46,10 +46,36 @@
             <div class="pipboy-controls">
                 <a href="dwellers/form" class="pipboy-button">[ADD_NEW_DWELLER]</a>
                 <c:if test="${not empty currentVault}">
-                    <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" 
+                    <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" id="main-menu"
                        class="pipboy-button">[MAIN_MENU]</a>
                 </c:if>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    const hotkeys = {
+	        'Escape': 'main-menu'
+	    };
+	
+	    document.addEventListener('keydown', function(event) {
+	        const key = event.key.toLowerCase();
+	        const actionId = hotkeys[key] || hotkeys[event.key];
+	        
+	        if (actionId) {
+	            event.preventDefault();
+	            const element = document.getElementById(actionId);
+	            if (element) {
+	                // Visual feedback
+	                element.classList.add('pipboy-button-active');
+	                setTimeout(() => element.classList.remove('pipboy-button-active'), 200);
+	                
+	                // Trigger click after visual feedback starts
+	                setTimeout(() => element.click(), 50);
+	            }
+	        }
+	    });
+	});
+</script>
