@@ -44,6 +44,7 @@
                 </table>
             </div>
             <div class="pipboy-controls">
+                <a href="dwellers/getDwellerReport.pdf" class="pipboy-button">[GENERATE_REPORT]</a>
                 <a href="dwellers/form" class="pipboy-button">[ADD_NEW_DWELLER]</a>
                 <c:if test="${not empty currentVault}">
                     <a href="<c:url value='/terminal?vaultNumber=${currentVault}'/>" id="main-menu"

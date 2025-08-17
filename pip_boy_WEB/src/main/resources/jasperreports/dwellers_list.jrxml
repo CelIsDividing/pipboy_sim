@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dwellers_list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="320a7f40-19cc-4eb1-85c5-518bb715f864">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="vaultNumber" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="dwellerId" class="java.lang.Integer"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="radiationLevel" class="java.math.BigDecimal"/>
+	<field name="securityClearance" class="java.lang.String"/>
+	<variable name="total_count" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{dwellerId}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{securityClearance}]]></groupExpression>
+		<groupHeader>
+			<band height="60">
+				<staticText>
+					<reportElement x="60" y="25" width="450" height="30" uuid="ccf64642-ec6e-417a-a271-7d5c5872bbe7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ISOCTEUR" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SECURITY_CLEARANCE ::::::::::::::::::::::::]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="330" y="25" width="135" height="30" uuid="cfbadc55-6333-485a-8708-728d155eacb7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="ISOCTEUR" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{securityClearance}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="109" y="10" width="337" height="56" uuid="8676bfa6-05dc-4698-8100-70f2ca5711b6"/>
+				<textElement textAlignment="Center">
+					<font fontName="ISOCTEUR" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+[DWELLER_LIST]]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="-10" width="100" height="30" uuid="3b4ac3ab-c618-4b30-9685-f1994b9b0e1e"/>
+				<textElement>
+					<font fontName="ISOCTEUR" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vaultNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="-10" width="55" height="30" uuid="e5645218-1d1e-4f97-a430-3f12007bedc0"/>
+				<textElement>
+					<font fontName="ISOCPEUR" size="16"/>
+				</textElement>
+				<text><![CDATA[Vault_]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="40" width="40" height="30" uuid="651acee4-cd49-4d76-8be0-799a00f39bb8">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dwellerId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="60" y="10" width="40" height="30" forecolor="#FFFFFF" backcolor="#6E6E6E" uuid="474eb7f2-961e-4fc4-82d2-9118a0d57e9e"/>
+				<box padding="0">
+					<pen lineWidth="1.0" lineColor="#030303"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="40" width="180" height="30" uuid="5ad8e286-3251-4c5a-ac2a-9a1bad38fc42">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="10" width="180" height="30" forecolor="#FFFFFF" backcolor="#6E6E6E" uuid="a910a0cc-a810-4ff5-9ebd-35a887e2460f"/>
+				<box padding="0">
+					<pen lineWidth="1.0" lineColor="#030303"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ NAME]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="40" width="100" height="30" uuid="53a9c3ad-8f84-4fc6-99b8-4fb055a5c5ff">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="10" width="100" height="30" forecolor="#FFFFFF" backcolor="#6E6E6E" uuid="bf55e877-6d63-4e9a-b27e-dda13a2e35dc"/>
+				<box padding="0">
+					<pen lineWidth="1.0" lineColor="#030303"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ STATUS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="40" width="120" height="30" uuid="a236fb48-dd06-4d61-ad39-840fbbf8d89f">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{radiationLevel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="10" width="120" height="30" forecolor="#FFFFFF" backcolor="#6E6E6E" uuid="2a943731-9c37-4e32-ac56-d73ee5ddc552"/>
+				<box padding="0">
+					<pen lineWidth="1.0" lineColor="#030303"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ RADIATION_LEVEL]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="525" y="30" width="50" height="30" uuid="b2820c13-a44f-43a4-94d7-9d8cae2f00e0"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="190" y="25" width="100" height="30" forecolor="#6E6E6E" uuid="16fab9e5-f6bf-4fc3-8dc0-b95c4579c12d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_count}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="25" width="191" height="30" forecolor="#6E6E6E" uuid="7979d6ee-5e2d-441a-9c8c-724fef115224"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="ISOCTEUR"/>
+				</textElement>
+				<text><![CDATA[TOTAL_HEAD_COUNT :::::::::]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
